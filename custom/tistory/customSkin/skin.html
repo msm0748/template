@@ -40,6 +40,31 @@
     <script defer src="./images/app.06f3c7a41660393949bc.js"></script>
     <link rel="stylesheet" href="./style.css" />
     <script defer src="./images/script.byESu0xvjSUVjqEy0BaE.js"></script>
+    <link rel="stylesheet" href="./images/codeblock.css" />
+    <script>
+      const COPY_TEXT_CHANGE_OFFSET = 1000;
+      const COPY_BUTTON_TEXT_BEFORE = "Copy";
+      const COPY_BUTTON_TEXT_AFTER = "Copied";
+      const COPY_ERROR_MESSAGE = "코드를 복사할 수 없습니다. 다시 시도해 주세요.";
+
+      const codeBlocks = document.querySelectorAll("pre > code");
+
+      const copyBlockCode = async (target = null) => {
+        if (!target) return;
+        try {
+          const code = decodeURI(target.dataset.code);
+
+          await navigator.clipboard.writeText(code);
+          target.textContent = COPY_BUTTON_TEXT_AFTER;
+          setTimeout(() => {
+            target.textContent = COPY_BUTTON_TEXT_BEFORE;
+          }, COPY_TEXT_CHANGE_OFFSET);
+        } catch (error) {
+          alert(COPY_ERROR_MESSAGE);
+          console.error(error);
+        }
+      };
+    </script>
   </head>
 
   <body class="min-w-xs overflow-x-hidden bg-h-100 text-h-900 dark:bg-h-800 dark:text-h-200" id="[##_body_id_##]">
@@ -799,10 +824,11 @@ hELLO 는 무료인 만큼, 링크의 주소는 반드시 지켜주시기 바랍
         </div>
         <div class="flex justify-end px-4 w-full box-border fixed text-sm z-30 bottom-3 xl:bottom-4 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>" id="bottom">
           <div class="flex gap-x-3">
-            <button x-data="theme" @click="toggle"><span class="text-hidden">테마</span><i class="fa-solid fa-moon text-base"></i></button><a href="#hELLO"><span class="text-hidden">상단으로</span><i class="fa-solid fa-chevron-up text-base"></i></a>
+            <a href="#hELLO"><span class="text-hidden">상단으로</span><i class="fa-solid fa-chevron-up text-base"></i></a>
           </div>
         </div>
       </div>
     </s_t3>
+    <script async src="./images/codeblock.js"></script>
   </body>
 </html>

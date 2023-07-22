@@ -487,47 +487,24 @@ document.addEventListener("alpine:init", function () {
     };
   });
 });
-document.addEventListener("alpine:init", function () {
-  return Alpine.data("theme", function () {
-    return {
-      /**
-       * Toggle Theme
-       */
-      toggle: function toggle() {
-        localStorage.TTDARK = document.documentElement.classList.contains("dark") ? "N" : "Y";
-        document.documentElement.classList.toggle("dark");
-        this.$data.dark = !this.$data.dark;
-      },
-    };
-  });
-});
+// document.addEventListener("alpine:init", function () {
+//   return Alpine.data("theme", function () {
+//     return {
+//       /**
+//        * Toggle Theme
+//        */
+//       toggle: function toggle() {
+//         localStorage.TTDARK = document.documentElement.classList.contains("dark") ? "N" : "Y";
+//         document.documentElement.classList.toggle("dark");
+//         this.$data.dark = !this.$data.dark;
+//       },
+//     };
+//   });
+// });
 
 const macCustomCodeBlock = () => {
-  // 파일 업로드 후 HTML 파일 head 태그 제일 하단에 아래 태그(주석 제거 후) 추가
-  // <script async src="./images/codeblock.js"></script>
-
-  const COPY_TEXT_CHANGE_OFFSET = 1000;
   const COPY_BUTTON_TEXT_BEFORE = "Copy";
-  const COPY_BUTTON_TEXT_AFTER = "Copied";
-  const COPY_ERROR_MESSAGE = "코드를 복사할 수 없습니다. 다시 시도해 주세요.";
-
   const codeBlocks = document.querySelectorAll("pre > code");
-
-  const copyBlockCode = async (target = null) => {
-    if (!target) return;
-    try {
-      const code = decodeURI(target.dataset.code);
-
-      await navigator.clipboard.writeText(code);
-      target.textContent = COPY_BUTTON_TEXT_AFTER;
-      setTimeout(() => {
-        target.textContent = COPY_BUTTON_TEXT_BEFORE;
-      }, COPY_TEXT_CHANGE_OFFSET);
-    } catch (error) {
-      alert(COPY_ERROR_MESSAGE);
-      console.error(error);
-    }
-  };
 
   for (const codeBlock of codeBlocks) {
     const codes = codeBlock.innerHTML.match(/(.*)(\n|.*$)/g);
@@ -554,6 +531,7 @@ onclick="copyBlockCode(this)">${COPY_BUTTON_TEXT_BEFORE}</button>`;
   }
 };
 window.addEventListener("DOMContentLoaded", function () {
+  localStorage.TTDARK = "N"; // 다크 모드 삭제
   Alpine.start();
   return macCustomCodeBlock();
 });
