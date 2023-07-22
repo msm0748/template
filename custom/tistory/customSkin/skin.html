@@ -202,7 +202,7 @@
               <s_guest_input_form>
                 <div class="p-5 w-full overflow-hidden mt-9 rounded-lg box-border h-32 lg:h-48 relative bg-h-200 dark:bg-h-700">
                   <div class="box-border flex flex-col justify-between h-full gap-y-3">
-                    <label class="text-hidden" for="text">댓글</label><textarea class="border-0 resize-none p-0 pr-5 h-full overflow-x-hidden overflow-y-scroll text-sm box-border outline-none w-[calc(100%+theme(spacing.10))] bg-h-200 dark:bg-h-700" id="text" name="[##_guest_textarea_body_##]"></textarea>
+                    <label class="text-hidden" for="text">댓글</label><textarea placeholder="내용을 입력해 주세요." class="border-0 resize-none p-0 pr-5 h-full overflow-x-hidden overflow-y-scroll text-sm box-border outline-none w-[calc(100%+theme(spacing.10))] bg-h-200 dark:bg-h-700" id="text" name="[##_guest_textarea_body_##]"></textarea>
                     <div class="flex items-end justify-end">
                       <s_guest_member>
                         <s_guest_form>
@@ -815,7 +815,7 @@ hELLO 는 무료인 만큼, 링크의 주소는 반드시 지켜주시기 바랍
           </template>
         </aside>
         <div class="w-full box-border px-4 h-14 top-0 fixed flex justify-between items-center z-30 backdrop-blur bg-h-100/50 dark:bg-h-800/80 xl:px-5 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>" x-data="top" @scroll.window="toggle" x-show="open" x-transition:enter="transition ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
-          <div style="width: 36px; height: 36px; border-radius: 50%; overflow: hidden"><img style="padding: 5px; border-radius: 0" class="lazyload rounded-full w-9 h-9 cursor-pointer <s_if_var_sidebar>xl:invisible</s_if_var_sidebar>" @click="sidebar = ! sidebar" data-src="./images/menu.png" data-sizes="auto" alt="메뉴 버튼" width="36" height="36" /></div>
+          <div style="width: 36px; height: 36px; border-radius: 50%; overflow: hidden"><img style="background: transparent; padding: 5px; border-radius: 0" class="lazyload rounded-full w-9 h-9 cursor-pointer <s_if_var_sidebar>xl:invisible</s_if_var_sidebar>" @click="sidebar = ! sidebar" data-src="./images/menu.png" data-sizes="auto" alt="메뉴 버튼" width="36" height="36" /></div>
           <div>
             <div class="m-0 text-sm font-bold h-5 text-overflow-hidden max-w-[calc(80vw-152px)] text-h-800 dark:text-h-200">[##_page_title_##]</div>
           </div>

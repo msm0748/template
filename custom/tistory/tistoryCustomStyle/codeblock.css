@@ -51,7 +51,7 @@ pre::after {
 .hljs .code-header {
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 8px;
     background-color: #434041;
     border-radius: 8px 8px 0 0;
 }
@@ -64,17 +64,17 @@ pre::after {
     position: absolute;
 }
 .hljs .code-header > div:hover .btn.red:before {
-    width: 10px;
+    width: 8px;
     height: 2px;
     transform: rotate(-45deg);
 }
 .hljs .code-header > div:hover .btn.red:after {
-    width: 10px;
+    width: 8px;
     height: 2px;
     transform: rotate(45deg);
 }
 .hljs .code-header > div:hover .btn.yellow:after {
-    width: 10px;
+    width: 8px;
     height: 2px;
 }
 .hljs .code-header > div:hover .btn.green:before {
@@ -84,8 +84,8 @@ pre::after {
     border-left: 3px solid transparent;
     border-top: 3px solid transparent;
     border-right: 3px solid black;
-    bottom: 4px;
-    right: 4px;
+    bottom: 3px;
+    right: 3px;
     background-color: transparent;
 }
 .hljs .code-header > div:hover .btn.green:after {
@@ -95,15 +95,15 @@ pre::after {
     border-top: 3px solid black;
     border-left: 3px solid black;
     border-right: 3px solid transparent;
-    top: 4px;
-    left: 4px;
+    top: 3px;
+    left: 3px;
     background-color: transparent;
 }
 .hljs .code-header .btn {
     border-radius: 50%;
-    width: 16px;
-    height: 16px;
-    margin: 0 5px;
+    width: 14px;
+    height: 14px;
+    margin: 0 4px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -122,6 +122,7 @@ pre::after {
     max-height: 600px;
     margin: 32px 8px;
     overflow: auto;
+    background-color: #282c34;
 }
 .hljs .code-body::-webkit-scrollbar {
     width: 12px;
@@ -139,6 +140,7 @@ pre::after {
     cursor: pointer;
     color: #fff;
     font-size: 0.9rem;
+    line-height: 0.9rem;
     padding: 6px 0;
     width: 64px;
     border-radius: 4px;

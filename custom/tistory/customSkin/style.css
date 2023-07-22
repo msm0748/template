@@ -3027,8 +3027,6 @@ button {
 
 #content .contents_style pre code.hljs {
   --tw-bg-opacity: 1;
-
-  background-color: rgb(41 42 45 / var(--tw-bg-opacity));
 }
 
 .dark #content .contents_style pre code.hljs {
@@ -3445,6 +3443,23 @@ button {
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
+  border-top-width: 1px;
+  border-style: solid;
+  --tw-border-opacity: 1;
+  border-color: rgb(153 153 161 / 0.8);
+}
+
+[data-mode="list"] .post:first-child {
+  border-width: 0;
+}
+
+@media (max-width: 640px) {
+  [data-mode="list"] .post {
+    padding: 40px 0;
+  }
+  [data-mode="list"] .list {
+    row-gap: 0;
+  }
 }
 
 @media (min-width: 640px) {
@@ -3455,10 +3470,6 @@ button {
     justify-content: flex-end;
     -moz-column-gap: 1.5rem;
     column-gap: 1.5rem;
-    border-top-width: 1px;
-    border-style: solid;
-    --tw-border-opacity: 1;
-    border-color: rgb(153 153 161 / 0.8);
   }
 
   .dark [data-mode="list"] .post {
@@ -3921,4 +3932,9 @@ button {
 .dark #bottom button:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(53 54 56 / var(--tw-bg-opacity));
+}
+
+/* custom css */
+h2 > a:hover {
+  text-decoration: underline;
 }
