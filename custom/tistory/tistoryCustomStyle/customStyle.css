@@ -1,0 +1,35 @@
+/* HTML 문서 작성 시 스타일 변경 */
+.custom caption {
+    overflow: hidden;
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 1px;
+    background: 0 0;
+    font-size: 0;
+    color: transparent;
+    line-height: 0;
+}
+
+.custom table th {
+    text-align: center;
+    font-size: 16px;
+}
+
+.custom table {
+    font-size: 16px;
+}
+.custom table th,
+.custom table td {
+    padding: 5px;
+}
+.custom table p {
+    margin: 0;
+    line-height: 24px;
+    word-break: keep-all;
+}
+.custom .ul {
+    padding-left: 22px;
+    text-indent: -16px;
+}

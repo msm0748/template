@@ -1,0 +1,1670 @@
+<!DOCTYPE html>
+<html
+    class="scroll-smooth"
+    id="hELLO"
+    x-data="{ dark: TTDARK, loading: true }"
+    x-init="setTimeout(() => loading = false, 100)"
+    lang="ko"
+>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>[##_page_title_##] — [##_title_##]</title>
+        <link rel="alternate" type="application/rss+xml" title="[##_title_##]" href="[##_rss_url_##]" />
+        <link rel="preconnect" href="//fonts.gstatic.com" />
+        <link
+            rel="stylesheet"
+            :href='"//fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"'
+        />
+        <link rel="stylesheet" :href='"//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"' />
+        <link rel="stylesheet" :href='"//cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-subset.css"' />
+        <link
+            rel="stylesheet"
+            :href="`//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/${dark ? skinOptions.hljsDark : skinOptions.hljs}.min.css`"
+        />
+        <style>
+            :root {
+                --h-width: [##_var_width_##]px;
+            }
+        </style>
+        <script>
+            window.skinOptions = {
+                sidebar: '[##_var_sidebar_##]',
+                foldableCategory: '[##_var_foldable-category_##]',
+                foldableReply: '[##_var_foldable-reply_##]',
+                width: '[##_var_width_##]',
+                toc: '[##_var_toc_##]',
+                scrollspy: '[##_var_scrollspy_##]',
+                hljs: '[##_var_hljs_##]',
+                hljsDark: '[##_var_hljs-dark_##]',
+            };
+        </script>
+        <script>
+            if (!('TTDARK' in localStorage)) {
+                localStorage.TTDARK = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'Y' : 'N';
+            }
+
+            window.TTDARK = localStorage.TTDARK === 'Y';
+
+            document.documentElement.classList.toggle('dark', TTDARK);
+        </script>
+        <script defer src="./images/vendor.06f3c7a41660393949bc.js"></script>
+        <script defer src="./images/app.06f3c7a41660393949bc.js"></script>
+        <link rel="stylesheet" href="./style.css" />
+        <script defer src="./images/script.byESu0xvjSUVjqEy0BaE.js"></script>
+    </head>
+
+    <body class="min-w-xs overflow-x-hidden bg-h-100 text-h-900 dark:bg-h-800 dark:text-h-200" id="[##_body_id_##]">
+        <div
+            class="w-screen h-screen fixed top-0 left-0 z-50 flex items-center justify-center bg-h-100 dark:bg-h-800"
+            id="loader"
+            x-show="loading"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100"
+            x-transition:leave="transition ease-in duration-300"
+            x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0"
+        >
+            <div
+                class="rounded-full w-14 h-14 my-14 mx-auto text-base relative border-2 border-solid border-h-500/20 border-l-h-500 dark:border-h-100/20 dark:border-l-h-100 animate-loading"
+            ></div>
+        </div>
+        <div class="fixed top-0 w-screen z-50" x-data="indicator" @scroll.window="indicate">
+            <div class="w-screen">
+                <div class="w-0 h-0.5 bg-h-900 rounded bg-h-800 dark:bg-h-200" x-ref="indicator"></div>
+            </div>
+        </div>
+        <s_t3>
+            <div class="pl-0 break-all <s_if_var_sidebar>xl:pl-64</s_if_var_sidebar>" x-data="{ sidebar: false }">
+                <main class="pb-14 lg:pb-18 relative" id="main">
+                    <s_cover_group>
+                        <div class="flex flex-col">
+                            <s_cover_rep>
+                                <s_cover name="list">
+                                    <section
+                                        class="flex flex-col items-center px-4 lg:px-0 lg:w-idx lg:mx-auto"
+                                        data-mode="list"
+                                    >
+                                        <div
+                                            class="text-3xl font-bold text-h-600 dark:text-h-200 my-10 empty:my-10 lg:my-20"
+                                        >
+                                            [##_cover_title_##]
+                                        </div>
+                                        <div class="list">
+                                            <s_cover_item>
+                                                <div class="post">
+                                                    <s_cover_item_thumbnail
+                                                        ><a class="thumbnail" href="[##_cover_item_url_##]"
+                                                            ><img
+                                                                class="lazyload object-cover bg-h-100"
+                                                                data-src="[##_cover_item_thumbnail_##]"
+                                                                data-sizes="auto"
+                                                                alt="" /></a
+                                                    ></s_cover_item_thumbnail>
+                                                    <s_cover_item_article_info>
+                                                        <div class="description flex flex-col">
+                                                            <a
+                                                                class="category text-sm text-h-400"
+                                                                href="[##_cover_item_category_url_##]"
+                                                                >[##_cover_item_category_##]</a
+                                                            >
+                                                            <h2>
+                                                                <a
+                                                                    class="text-h-800 dark:text-h-200"
+                                                                    href="[##_cover_item_url_##]"
+                                                                    >[##_cover_item_title_##]</a
+                                                                >
+                                                            </h2>
+                                                            <time class="text-h-400 text-sm"
+                                                                >[##_cover_item_simple_date_##]</time
+                                                            >
+                                                            <p
+                                                                class="relative overflow-hidden leading-7 text-h-500 dark:text-h-400"
+                                                            >
+                                                                [##_cover_item_summary_##]
+                                                            </p>
+                                                        </div>
+                                                    </s_cover_item_article_info>
+                                                    <s_cover_item_not_article_info>
+                                                        <div class="description flex flex-col">
+                                                            <h2>
+                                                                <a
+                                                                    class="text-h-800 dark:text-h-200"
+                                                                    href="[##_cover_item_url_##]"
+                                                                    >[##_cover_item_title_##]</a
+                                                                >
+                                                            </h2>
+                                                            <p>[##_cover_item_summary_##]</p>
+                                                        </div>
+                                                    </s_cover_item_not_article_info>
+                                                </div>
+                                            </s_cover_item>
+                                        </div>
+                                    </section>
+                                </s_cover>
+                                <s_cover name="grid">
+                                    <section
+                                        class="flex flex-col items-center px-4 lg:px-0 lg:w-idx lg:mx-auto"
+                                        data-mode="grid"
+                                    >
+                                        <div
+                                            class="text-3xl font-bold text-h-600 dark:text-h-200 my-10 empty:my-10 lg:my-20"
+                                        >
+                                            [##_cover_title_##]
+                                        </div>
+                                        <div class="list">
+                                            <s_cover_item>
+                                                <div class="post">
+                                                    <s_cover_item_thumbnail
+                                                        ><a class="thumbnail" href="[##_cover_item_url_##]"
+                                                            ><img
+                                                                class="lazyload object-cover bg-h-100"
+                                                                data-src="[##_cover_item_thumbnail_##]"
+                                                                data-sizes="auto"
+                                                                alt="" /></a
+                                                    ></s_cover_item_thumbnail>
+                                                    <s_cover_item_article_info>
+                                                        <div class="description flex flex-col">
+                                                            <a
+                                                                class="category text-sm text-h-400"
+                                                                href="[##_cover_item_category_url_##]"
+                                                                >[##_cover_item_category_##]</a
+                                                            >
+                                                            <h2>
+                                                                <a
+                                                                    class="text-h-800 dark:text-h-200"
+                                                                    href="[##_cover_item_url_##]"
+                                                                    >[##_cover_item_title_##]</a
+                                                                >
+                                                            </h2>
+                                                            <time class="text-h-400 text-sm"
+                                                                >[##_cover_item_simple_date_##]</time
+                                                            >
+                                                            <p
+                                                                class="relative overflow-hidden leading-7 text-h-500 dark:text-h-400"
+                                                            >
+                                                                [##_cover_item_summary_##]
+                                                            </p>
+                                                        </div>
+                                                    </s_cover_item_article_info>
+                                                    <s_cover_item_not_article_info>
+                                                        <div class="description flex flex-col">
+                                                            <h2>
+                                                                <a
+                                                                    class="text-h-800 dark:text-h-200"
+                                                                    href="[##_cover_item_url_##]"
+                                                                    >[##_cover_item_title_##]</a
+                                                                >
+                                                            </h2>
+                                                            <p>[##_cover_item_summary_##]</p>
+                                                        </div>
+                                                    </s_cover_item_not_article_info>
+                                                </div>
+                                            </s_cover_item>
+                                        </div>
+                                    </section>
+                                </s_cover>
+                                <s_cover name="zigzag">
+                                    <section
+                                        class="flex flex-col items-center px-4 lg:px-0 lg:w-idx lg:mx-auto"
+                                        data-mode="zigzag"
+                                    >
+                                        <div
+                                            class="text-3xl font-bold text-h-600 dark:text-h-200 my-10 empty:my-10 lg:my-20"
+                                        >
+                                            [##_cover_title_##]
+                                        </div>
+                                        <div class="list">
+                                            <s_cover_item>
+                                                <div class="post">
+                                                    <s_cover_item_thumbnail
+                                                        ><a class="thumbnail" href="[##_cover_item_url_##]"
+                                                            ><img
+                                                                class="lazyload object-cover bg-h-100"
+                                                                data-src="[##_cover_item_thumbnail_##]"
+                                                                data-sizes="auto"
+                                                                alt="" /></a
+                                                    ></s_cover_item_thumbnail>
+                                                    <s_cover_item_article_info>
+                                                        <div class="description flex flex-col">
+                                                            <a
+                                                                class="category text-sm text-h-400"
+                                                                href="[##_cover_item_category_url_##]"
+                                                                >[##_cover_item_category_##]</a
+                                                            >
+                                                            <h2>
+                                                                <a
+                                                                    class="text-h-800 dark:text-h-200"
+                                                                    href="[##_cover_item_url_##]"
+                                                                    >[##_cover_item_title_##]</a
+                                                                >
+                                                            </h2>
+                                                            <time class="text-h-400 text-sm"
+                                                                >[##_cover_item_simple_date_##]</time
+                                                            >
+                                                            <p
+                                                                class="relative overflow-hidden leading-7 text-h-500 dark:text-h-400"
+                                                            >
+                                                                [##_cover_item_summary_##]
+                                                            </p>
+                                                        </div>
+                                                    </s_cover_item_article_info>
+                                                    <s_cover_item_not_article_info>
+                                                        <div class="description flex flex-col">
+                                                            <h2>
+                                                                <a
+                                                                    class="text-h-800 dark:text-h-200"
+                                                                    href="[##_cover_item_url_##]"
+                                                                    >[##_cover_item_title_##]</a
+                                                                >
+                                                            </h2>
+                                                            <p>[##_cover_item_summary_##]</p>
+                                                        </div>
+                                                    </s_cover_item_not_article_info>
+                                                </div>
+                                            </s_cover_item>
+                                        </div>
+                                    </section>
+                                </s_cover>
+                                <s_cover name="slideshow">
+                                    <section class="flex flex-col items-center gap-y-10" data-mode="slideshow">
+                                        <div class="swiper w-full h-screen">
+                                            <div class="list swiper-wrapper">
+                                                <s_cover_item>
+                                                    <div
+                                                        class="post swiper-slide flex justify-center items-center before:absolute before:right-0 before:top-0 before:w-full before:h-screen before:bg-h-900/60 before:z-10"
+                                                    >
+                                                        <s_cover_item_thumbnail
+                                                            ><a class="thumbnail" href="[##_cover_item_url_##]"
+                                                                ><img
+                                                                    class="lazyload object-cover bg-h-100 w-screen h-screen object-cover"
+                                                                    data-src="[##_cover_item_thumbnail_##]"
+                                                                    data-sizes="auto"
+                                                                    alt="" /></a
+                                                        ></s_cover_item_thumbnail>
+                                                        <s_cover_item_article_info>
+                                                            <div
+                                                                class="description flex flex-col text-h-200 absolute w-screen h-screen flex flex-col justify-center items-center gap-y-2 text-center z-20 [&_h2]:px-4 [&_a]:text-h-200 [&_a]:text-4xl [&_a]:font-bold"
+                                                            >
+                                                                <h2>
+                                                                    <a
+                                                                        class="text-h-800 dark:text-h-200"
+                                                                        href="[##_cover_item_url_##]"
+                                                                        >[##_cover_item_title_##]</a
+                                                                    >
+                                                                </h2>
+                                                            </div>
+                                                        </s_cover_item_article_info>
+                                                        <s_cover_item_not_article_info>
+                                                            <div
+                                                                class="description flex flex-col text-h-200 absolute w-screen h-screen flex flex-col justify-center items-center gap-y-2 text-center z-20 [&_h2]:px-4 [&_a]:text-h-200 [&_a]:text-4xl [&_a]:font-bold"
+                                                            >
+                                                                <h2>
+                                                                    <a
+                                                                        class="text-h-800 dark:text-h-200"
+                                                                        href="[##_cover_item_url_##]"
+                                                                        >[##_cover_item_title_##]</a
+                                                                    >
+                                                                </h2>
+                                                            </div>
+                                                        </s_cover_item_not_article_info>
+                                                    </div>
+                                                </s_cover_item>
+                                            </div>
+                                            <div class="swiper-button-next"></div>
+                                            <div class="swiper-button-prev"></div>
+                                        </div>
+                                    </section>
+                                </s_cover>
+                            </s_cover_rep>
+                        </div>
+                    </s_cover_group>
+                    <s_guest>
+                        <div
+                            class="w-full px-4 mt-20 lg:mt-40 lg:px-0 lg:max-w-screen-lg lg:w-pem lg:mx-auto"
+                            id="guestbook"
+                        >
+                            <s_guest_input_form>
+                                <div
+                                    class="p-5 w-full overflow-hidden mt-9 rounded-lg box-border h-32 lg:h-48 relative bg-h-200 dark:bg-h-700"
+                                >
+                                    <div class="box-border flex flex-col justify-between h-full gap-y-3">
+                                        <label class="text-hidden" for="text">댓글</label
+                                        ><textarea
+                                            class="border-0 resize-none p-0 pr-5 h-full overflow-x-hidden overflow-y-scroll text-sm box-border outline-none w-[calc(100%+theme(spacing.10))] bg-h-200 dark:bg-h-700"
+                                            id="text"
+                                            name="[##_guest_textarea_body_##]"
+                                        ></textarea>
+                                        <div class="flex items-end justify-end">
+                                            <s_guest_member>
+                                                <s_guest_form>
+                                                    <div class="flex gap-x-2 mr-auto">
+                                                        <div class="flex gap-x-2 text-xs text-h-500 dark:text-h-200">
+                                                            <label for="name">이름</label
+                                                            ><input
+                                                                class="border-0 inline-block outline-none w-16 lg:w-32 bg-h-200 dark:bg-h-700"
+                                                                id="name"
+                                                                autocomplete="username"
+                                                                name="[##_guest_input_name_##]"
+                                                                value="[##_guest_name_##]"
+                                                            />
+                                                        </div>
+                                                        <div class="flex gap-x-2 text-xs text-h-500 dark:text-h-200">
+                                                            <label for="password">암호</label
+                                                            ><input
+                                                                class="border-0 inline-block outline-none w-16 lg:w-32 bg-h-200 dark:bg-h-700"
+                                                                id="password"
+                                                                autocomplete="current-password"
+                                                                type="password"
+                                                                maxlength="8"
+                                                                name="[##_guest_input_password_##]"
+                                                                value="[##_guest_password_##]"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </s_guest_form>
+                                            </s_guest_member>
+                                            <div class="flex items-end gap-x-4" x-data="{ secret: false }">
+                                                <input
+                                                    class="hidden"
+                                                    id="secret"
+                                                    type="checkbox"
+                                                    name="[##_guest_input_is_secret_##]"
+                                                /><label id="secret-label" for="secret" @click="secret = ! secret"
+                                                    ><span class="text-hidden">비밀글</span
+                                                    ><i
+                                                        class="fa-solid"
+                                                        :class='{ "fa-lock": secret, "fa-unlock": ! secret }'
+                                                    ></i></label
+                                                ><a href="#" onclick="[##_guest_onclick_submit_##]"
+                                                    ><span class="text-hidden">댓글쓰기</span
+                                                    ><i
+                                                        class="fa-solid fa-arrow-circle-down text-3xl leading-none text-h-900 dark:text-h-200"
+                                                    ></i
+                                                ></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </s_guest_input_form>
+                            <s_guest_container>
+                                <div id="comments">
+                                    <ol class="flex gap-y-5 mt-9 flex-col">
+                                        <s_guest_rep>
+                                            <li
+                                                class="flex flex-col gap-y-5 border-b border-dotted border-h-400 pb-5"
+                                                x-data="{ open: ! skinOptions.foldableReply, children: [] }"
+                                                id="[##_guest_rep_id_##]"
+                                                :class='{ "[&>div]:before:hidden": children.length === 0 }'
+                                            >
+                                                <div
+                                                    class="[##_guest_rep_class_##] flex flex-col gap-y-4 relative before:content-[''] before:absolute before:w-[1px] before:h-[calc(100%-65px)] before:left-[calc(theme(spacing.12)/2)] before:top-16 before:bg-h-300 dark:before:bg-h-400"
+                                                >
+                                                    <div>
+                                                        <div class="flex items-center gap-x-4">
+                                                            <img
+                                                                class="lazyload rounded-full"
+                                                                alt=""
+                                                                data-src="[##_guest_rep_logo_##]"
+                                                                data-sizes="auto"
+                                                                width="48"
+                                                                height="48"
+                                                            />
+                                                            <div>
+                                                                <div
+                                                                    class="text-sm font-bold text-h-600 dark:text-h-200 [&_img]:hidden"
+                                                                >
+                                                                    [##_guest_rep_name_##]
+                                                                </div>
+                                                                <time class="text-h-400 text-xs"
+                                                                    >[##_guest_rep_date_##]</time
+                                                                >
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pl-16 leading-7 text-sm text-h-500 dark:text-h-300">
+                                                        [##_guest_rep_desc_##]
+                                                    </div>
+                                                    <div class="pl-16 flex gap-x-1 text-h-400 text-xs">
+                                                        <a href="#" onclick="[##_guest_rep_onclick_delete_##]"
+                                                            >수정/삭제</a
+                                                        ><a href="#" onclick="[##_guest_rep_onclick_reply_##]"
+                                                            >댓글쓰기</a
+                                                        ><template
+                                                            x-if="skinOptions.foldableReply && children.length > 0"
+                                                            ><a
+                                                                class="more"
+                                                                href="#"
+                                                                @click.prevent="open = ! open"
+                                                                x-html="`댓글보기(${children.length})`"
+                                                            ></a
+                                                        ></template>
+                                                    </div>
+                                                </div>
+                                                <s_guest_reply_container>
+                                                    <ol
+                                                        class="flex flex-col gap-y-5"
+                                                        x-show="open"
+                                                        x-init='children = $el.querySelectorAll("li")'
+                                                    >
+                                                        <s_guest_reply_rep>
+                                                            <li
+                                                                class="[&:last-child>div]:before:hidden"
+                                                                id="[##_guest_rep_id_##]"
+                                                            >
+                                                                <div
+                                                                    class="[##_guest_rep_class_##] flex flex-col gap-y-4 relative before:content-[''] before:absolute before:w-[1px] before:h-[calc(100%-65px)] before:left-[calc(theme(spacing.12)/2)] before:top-16 before:bg-h-300 dark:before:bg-h-400"
+                                                                >
+                                                                    <div>
+                                                                        <div class="flex items-center gap-x-4">
+                                                                            <img
+                                                                                class="lazyload rounded-full"
+                                                                                alt=""
+                                                                                data-src="[##_guest_rep_logo_##]"
+                                                                                data-sizes="auto"
+                                                                                width="48"
+                                                                                height="48"
+                                                                            />
+                                                                            <div>
+                                                                                <div
+                                                                                    class="text-sm font-bold text-h-600 dark:text-h-200 [&_img]:hidden"
+                                                                                >
+                                                                                    [##_guest_rep_name_##]
+                                                                                </div>
+                                                                                <time class="text-h-400 text-xs"
+                                                                                    >[##_guest_rep_date_##]</time
+                                                                                >
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div
+                                                                        class="pl-16 leading-7 text-sm text-h-500 dark:text-h-300"
+                                                                    >
+                                                                        [##_guest_rep_desc_##]
+                                                                    </div>
+                                                                    <div class="pl-16 flex gap-x-1 text-h-400 text-xs">
+                                                                        <a
+                                                                            href="#"
+                                                                            onclick="[##_guest_rep_onclick_delete_##]"
+                                                                            >수정/삭제</a
+                                                                        >
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </s_guest_reply_rep>
+                                                    </ol>
+                                                </s_guest_reply_container>
+                                            </li>
+                                        </s_guest_rep>
+                                    </ol>
+                                </div>
+                            </s_guest_container>
+                        </div>
+                    </s_guest>
+                    <s_article_rep>
+                        <s_permalink_article_rep>
+                            <div id="permalink">
+                                <header
+                                    class="h-64 mb-10 flex justify-center items-center border-b border-b-solid border-b-h-200 dark:border-b-h-700 lg:mb-16"
+                                >
+                                    <s_article_rep_thumbnail>
+                                        <div
+                                            class="thumbnail absolute right-0 top-0 w-full h-64 before:content-[&quot;&quot;] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/50 before:z-10 [&+.description]:text-h-200"
+                                        >
+                                            <img
+                                                class="absolute right-0 top-0 w-full h-64 z-0 object-cover"
+                                                src="[##_article_rep_thumbnail_url_##]"
+                                                alt=""
+                                            />
+                                        </div>
+                                    </s_article_rep_thumbnail>
+                                    <div
+                                        class="description flex flex-col items-center gap-y-2 z-20 relative mx-4 text-h-800 dark:text-h-200 lg:mx-0"
+                                    >
+                                        <a href="[##_article_rep_category_link_##]">[##_article_rep_category_##]</a>
+                                        <h1 class="text-center font-bold text-2xl lg:text-3xl">
+                                            [##_article_rep_title_##]
+                                        </h1>
+                                        <div class="flex gap-x-2">
+                                            <time class="text-sm">[##_article_rep_date_##]</time
+                                            ><span class="admin flex gap-x-2 text-sm">
+                                                <s_ad_div
+                                                    ><a href="[##_s_ad_m_link_##]">수정</a
+                                                    ><a href="#" onclick="[##_s_ad_d_onclick_##]">삭제</a
+                                                    ><a href="#" onclick="[##_s_ad_s2_onclick_##]"
+                                                        >[##_s_ad_s1_label_##]</a
+                                                    ></s_ad_div
+                                                >
+                                            </span>
+                                        </div>
+                                    </div>
+                                </header>
+                                <div class="px-4 w-full lg:max-w-screen-lg lg:w-pem lg:px-0 lg:mx-auto">
+                                    <article class="relative" id="content" x-ref="content">
+                                        <div x-data="content">
+                                            <s_if_var_toc
+                                                ><template x-if="$data.headings.length > 0">
+                                                    <div
+                                                        class="rounded-md p-5 mb-8 box-border bg-h-200 text-h-500 dark:bg-h-700 dark:text-h-200"
+                                                        id="TOC"
+                                                    >
+                                                        <strong
+                                                            class="flex items-center justify-between text-overflow-hidden text-sm pb-2 mb-4 border-b border-solid border-h-400 dark:border-h-200"
+                                                            ><span class="text-base">목차</span
+                                                            ><i class="fas fa-bars"></i
+                                                        ></strong>
+                                                        <ol class="flex flex-col gap-y-3">
+                                                            <template
+                                                                x-for="heading in $data.headings"
+                                                                :key="heading.id"
+                                                            >
+                                                                <li
+                                                                    :class='{ "pl-0": heading.tagName === "H2", "pl-4": heading.tagName === "H3" }'
+                                                                >
+                                                                    <a
+                                                                        class="flex items-center justify-between text-sm duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200"
+                                                                        :href="heading.href"
+                                                                    >
+                                                                        <div
+                                                                            class="text-overflow-hidden"
+                                                                            x-text="heading.text"
+                                                                        ></div>
+                                                                        <i class="fas fa-arrow-right scale-75"></i>
+                                                                    </a>
+                                                                </li>
+                                                            </template>
+                                                        </ol>
+                                                    </div> </template
+                                            ></s_if_var_toc>
+                                            <div id="article" x-ref="article">
+                                                <template x-ref="articleTemplate" x-teleport="#article">
+                                                    <div>[##_article_rep_desc_##]</div>
+                                                </template>
+                                            </div>
+                                            <s_if_var_scrollspy
+                                                ><template x-if="$data.headings.length > 0">
+                                                    <div
+                                                        class="2xl:absolute 2xl:top-0 2xl:h-full 2xl:ml-[calc(((1100px+theme(width.pem))/2)+theme(spacing.5))]"
+                                                        id="scrollspy"
+                                                        x-data="scrollspy"
+                                                        @scroll.window="scrollspy"
+                                                        x-transition:enter="transition ease-linear duration-200"
+                                                        x-transition:enter-start="opacity-0"
+                                                        x-transition:enter-end="opacity-100"
+                                                        x-transition:leave="transition ease-linear duration-200"
+                                                        x-transition:leave-start="opacity-100"
+                                                        x-transition:leave-end="opacity-0"
+                                                        x-show="show"
+                                                    >
+                                                        <div class="2xl:sticky 2xl:top-20">
+                                                            <button
+                                                                class="fixed top-20 right-0 w-8 h-8 z-30 rounded-md bg-h-300 text-h-500 dark:bg-h-700 dark:text-h-200 2xl:hidden"
+                                                                x-show="! open"
+                                                                @click="toggle"
+                                                            >
+                                                                <span class="text-hidden">목차</span
+                                                                ><i class="fa-solid fa-list-check"></i>
+                                                            </button>
+                                                            <div
+                                                                class="max-h-[calc(100vh-theme(spacing.20)-theme(spacing.10)-theme(spacing.3)-2rem)] overflow-hidden w-56 text-sm box-border max-2xl:transition-[right] max-2xl:duration-200 max-2xl:rounded-xl max-2xl:fixed max-2xl:top-20 max-2xl:right-4 max-2xl:z-40 max-2xl:bg-h-200 max-2xl:dark:bg-h-700 2xl:block"
+                                                                :class='open ? "max-2xl:right-4" : "max-2xl:-right-60"'
+                                                            >
+                                                                <div
+                                                                    class="overflow-x-hidden overflow-y-scroll max-h-[inherit] w-[calc(theme(spacing.56)+theme(spacing.5))]"
+                                                                >
+                                                                    <button
+                                                                        class="absolute text-base top-2 right-4 text-h-500 dark:text-h-200 2xl:hidden"
+                                                                        @click="toggle"
+                                                                    >
+                                                                        <span class="text-hidden">목차 닫기</span
+                                                                        ><i class="fa-solid fa-xmark"></i>
+                                                                    </button>
+                                                                    <ol
+                                                                        class="flex flex-col gap-y-3 max-2xl:p-6 max-2xl:pt-8 max-2xl:pr-14 2xl:px-8"
+                                                                        x-ref="spy"
+                                                                    >
+                                                                        <template
+                                                                            x-for="heading in $data.headings"
+                                                                            :key="heading.id"
+                                                                        >
+                                                                            <li
+                                                                                class="text-h-400"
+                                                                                :class='{ "pl-0": heading.tagName === "H2", "pl-4": heading.tagName === "H3" }'
+                                                                            >
+                                                                                <a
+                                                                                    class="duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200"
+                                                                                    :href="heading.href"
+                                                                                    x-text="heading.text"
+                                                                                    :class='{ "text-h-600 dark:text-h-200": heading.active }'
+                                                                                ></a>
+                                                                            </li>
+                                                                        </template>
+                                                                    </ol>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div> </template
+                                            ></s_if_var_scrollspy>
+                                        </div>
+                                    </article>
+                                    <div x-data="{ shown: false }" x-intersect.once="shown = true">
+                                        <footer class="mt-4" x-show="shown">
+                                            <s_article_related>
+                                                <div
+                                                    class="rounded-md p-5 mt-4 mb-0 box-border bg-h-200 text-h-500 dark:bg-h-700 dark:text-h-200"
+                                                >
+                                                    <div
+                                                        class="font-bold flex items-center justify-between text-overflow-hidden text-sm pb-2 mb-4 border-b border-solid border-h-400 dark:border-h-200"
+                                                    >
+                                                        <span>'[##_article_rep_category_##]' 카테고리의 다른 글</span
+                                                        ><i class="fas fa-bars"></i>
+                                                    </div>
+                                                    <ul class="flex flex-col gap-y-2">
+                                                        <s_article_related_rep>
+                                                            <li>
+                                                                <a
+                                                                    class="flex items-center justify-between text-sm"
+                                                                    href="[##_article_related_rep_link_##]"
+                                                                >
+                                                                    <div class="text-overflow-hidden">
+                                                                        [##_article_related_rep_title_##]
+                                                                    </div>
+                                                                    <i class="fas fa-arrow-right scale-75"></i>
+                                                                </a>
+                                                            </li>
+                                                        </s_article_related_rep>
+                                                    </ul>
+                                                </div>
+                                            </s_article_related>
+                                            <s_tag_label>
+                                                <div class="mt-2 flex flex-wrap gap-x-1.5 text-[0]" id="tags">
+                                                    [##_tag_label_rep_##]
+                                                </div>
+                                            </s_tag_label>
+                                            <div
+                                                class="border-t border-b border-dotted border-h-400 mt-6 py-8 flex gap-x-5 items-center"
+                                            >
+                                                <img
+                                                    class="lazyload rounded-full w-20 h-20"
+                                                    data-src="[##_image_##]"
+                                                    data-sizes="auto"
+                                                    width="80"
+                                                    height="80"
+                                                    alt="[##_blogger_##]"
+                                                />
+                                                <div class="flex flex-col gap-y-1">
+                                                    <div class="text-h-800 dark:text-h-200 font-bold">
+                                                        [##_blogger_##]
+                                                    </div>
+                                                    <div class="leading-7 text-sm text-h-400">[##_desc_##]</div>
+                                                </div>
+                                            </div>
+                                        </footer>
+                                    </div>
+                                </div>
+                                <s_rp>
+                                    <div
+                                        class="px-4 lg:px-0 lg:max-w-screen-lg lg:w-pem lg:mx-auto"
+                                        x-data="{ shown: false }"
+                                        x-intersect.once="shown = true"
+                                    >
+                                        <div x-show="shown">
+                                            <s_rp_input_form>
+                                                <div
+                                                    class="p-5 w-full overflow-hidden mt-9 rounded-lg box-border h-32 lg:h-48 relative bg-h-200 dark:bg-h-700"
+                                                >
+                                                    <div
+                                                        class="box-border flex flex-col justify-between h-full gap-y-3"
+                                                    >
+                                                        <label class="text-hidden" for="text">댓글</label
+                                                        ><textarea
+                                                            class="border-0 resize-none p-0 pr-5 h-full overflow-x-hidden overflow-y-scroll text-sm box-border outline-none w-[calc(100%+theme(spacing.10))] bg-h-200 dark:bg-h-700"
+                                                            id="text"
+                                                            name="[##_rp_input_comment_##]"
+                                                        ></textarea>
+                                                        <div class="flex items-end justify-end">
+                                                            <s_rp_member>
+                                                                <s_rp_guest>
+                                                                    <div class="flex gap-x-2 mr-auto">
+                                                                        <div
+                                                                            class="flex gap-x-2 text-xs text-h-500 dark:text-h-200"
+                                                                        >
+                                                                            <label for="name">이름</label
+                                                                            ><input
+                                                                                class="border-0 inline-block outline-none w-16 lg:w-32 bg-h-200 dark:bg-h-700"
+                                                                                id="name"
+                                                                                autocomplete="username"
+                                                                                name="[##_rp_input_name_##]"
+                                                                                value="[##_guest_name_##]"
+                                                                            />
+                                                                        </div>
+                                                                        <div
+                                                                            class="flex gap-x-2 text-xs text-h-500 dark:text-h-200"
+                                                                        >
+                                                                            <label for="password">암호</label
+                                                                            ><input
+                                                                                class="border-0 inline-block outline-none w-16 lg:w-32 bg-h-200 dark:bg-h-700"
+                                                                                id="password"
+                                                                                autocomplete="current-password"
+                                                                                type="password"
+                                                                                maxlength="8"
+                                                                                name="[##_rp_input_password_##]"
+                                                                                value="[##_guest_password_##]"
+                                                                            />
+                                                                        </div>
+                                                                    </div>
+                                                                </s_rp_guest>
+                                                            </s_rp_member>
+                                                            <div
+                                                                class="flex items-end gap-x-4"
+                                                                x-data="{ secret: false }"
+                                                            >
+                                                                <input
+                                                                    class="hidden"
+                                                                    id="secret"
+                                                                    type="checkbox"
+                                                                    name="[##_rp_input_is_secret_##]"
+                                                                /><label
+                                                                    id="secret-label"
+                                                                    for="secret"
+                                                                    @click="secret = ! secret"
+                                                                    ><span class="text-hidden">비밀글</span
+                                                                    ><i
+                                                                        class="fa-solid"
+                                                                        :class='{ "fa-lock": secret, "fa-unlock": ! secret }'
+                                                                    ></i></label
+                                                                ><a href="#" onclick="[##_rp_onclick_submit_##]"
+                                                                    ><span class="text-hidden">댓글쓰기</span
+                                                                    ><i
+                                                                        class="fa-solid fa-arrow-circle-down text-3xl leading-none text-h-900 dark:text-h-200"
+                                                                    ></i
+                                                                ></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </s_rp_input_form>
+                                            <s_rp_container>
+                                                <div id="comments">
+                                                    <ol class="flex gap-y-5 mt-9 flex-col-reverse">
+                                                        <s_rp_rep>
+                                                            <li
+                                                                class="flex flex-col gap-y-5 border-b border-dotted border-h-400 pb-5"
+                                                                x-data="{ open: ! skinOptions.foldableReply, children: [] }"
+                                                                id="[##_rp_rep_id_##]"
+                                                                :class='{ "[&>div]:before:hidden": children.length === 0 }'
+                                                            >
+                                                                <div
+                                                                    class="[##_rp_rep_class_##] flex flex-col gap-y-4 relative before:content-[''] before:absolute before:w-[1px] before:h-[calc(100%-65px)] before:left-[calc(theme(spacing.12)/2)] before:top-16 before:bg-h-300 dark:before:bg-h-400"
+                                                                >
+                                                                    <div>
+                                                                        <div class="flex items-center gap-x-4">
+                                                                            <img
+                                                                                class="lazyload rounded-full"
+                                                                                alt=""
+                                                                                data-src="[##_rp_rep_logo_##]"
+                                                                                data-sizes="auto"
+                                                                                width="48"
+                                                                                height="48"
+                                                                            />
+                                                                            <div>
+                                                                                <div
+                                                                                    class="text-sm font-bold text-h-600 dark:text-h-200 [&_img]:hidden"
+                                                                                >
+                                                                                    [##_rp_rep_name_##]
+                                                                                </div>
+                                                                                <time class="text-h-400 text-xs"
+                                                                                    >[##_rp_rep_date_##]</time
+                                                                                >
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div
+                                                                        class="pl-16 leading-7 text-sm text-h-500 dark:text-h-300"
+                                                                    >
+                                                                        [##_rp_rep_desc_##]
+                                                                    </div>
+                                                                    <div class="pl-16 flex gap-x-1 text-h-400 text-xs">
+                                                                        <a
+                                                                            href="#"
+                                                                            onclick="[##_rp_rep_onclick_delete_##]"
+                                                                            >수정/삭제</a
+                                                                        ><a
+                                                                            href="#"
+                                                                            onclick="[##_rp_rep_onclick_reply_##]"
+                                                                            >댓글쓰기</a
+                                                                        ><template
+                                                                            x-if="skinOptions.foldableReply && children.length > 0"
+                                                                            ><a
+                                                                                class="more"
+                                                                                href="#"
+                                                                                @click.prevent="open = ! open"
+                                                                                x-html="`댓글보기(${children.length})`"
+                                                                            ></a
+                                                                        ></template>
+                                                                    </div>
+                                                                </div>
+                                                                <s_rp2_container>
+                                                                    <ol
+                                                                        class="flex flex-col gap-y-5"
+                                                                        x-show="open"
+                                                                        x-init='children = $el.querySelectorAll("li")'
+                                                                    >
+                                                                        <s_rp2_rep>
+                                                                            <li
+                                                                                class="[&:last-child>div]:before:hidden"
+                                                                                id="[##_rp_rep_id_##]"
+                                                                            >
+                                                                                <div
+                                                                                    class="[##_rp_rep_class_##] flex flex-col gap-y-4 relative before:content-[''] before:absolute before:w-[1px] before:h-[calc(100%-65px)] before:left-[calc(theme(spacing.12)/2)] before:top-16 before:bg-h-300 dark:before:bg-h-400"
+                                                                                >
+                                                                                    <div>
+                                                                                        <div
+                                                                                            class="flex items-center gap-x-4"
+                                                                                        >
+                                                                                            <img
+                                                                                                class="lazyload rounded-full"
+                                                                                                alt=""
+                                                                                                data-src="[##_rp_rep_logo_##]"
+                                                                                                data-sizes="auto"
+                                                                                                width="48"
+                                                                                                height="48"
+                                                                                            />
+                                                                                            <div>
+                                                                                                <div
+                                                                                                    class="text-sm font-bold text-h-600 dark:text-h-200 [&_img]:hidden"
+                                                                                                >
+                                                                                                    [##_rp_rep_name_##]
+                                                                                                </div>
+                                                                                                <time
+                                                                                                    class="text-h-400 text-xs"
+                                                                                                    >[##_rp_rep_date_##]</time
+                                                                                                >
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="pl-16 leading-7 text-sm text-h-500 dark:text-h-300"
+                                                                                    >
+                                                                                        [##_rp_rep_desc_##]
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="pl-16 flex gap-x-1 text-h-400 text-xs"
+                                                                                    >
+                                                                                        <a
+                                                                                            href="#"
+                                                                                            onclick="[##_rp_rep_onclick_delete_##]"
+                                                                                            >수정/삭제</a
+                                                                                        >
+                                                                                    </div>
+                                                                                </div>
+                                                                            </li>
+                                                                        </s_rp2_rep>
+                                                                    </ol>
+                                                                </s_rp2_container>
+                                                            </li>
+                                                        </s_rp_rep>
+                                                    </ol>
+                                                </div>
+                                            </s_rp_container>
+                                        </div>
+                                    </div>
+                                </s_rp>
+                            </div>
+                        </s_permalink_article_rep>
+                        <s_page_rep>
+                            <div id="page">
+                                <header
+                                    class="h-64 mb-10 flex justify-center items-center border-b border-b-solid border-b-h-200 dark:border-b-h-700 lg:mb-16"
+                                >
+                                    <s_article_rep_thumbnail>
+                                        <div
+                                            class="thumbnail absolute right-0 top-0 w-full h-64 before:content-[&quot;&quot;] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/50 before:z-10 [&+.description]:text-h-200"
+                                        >
+                                            <img
+                                                class="absolute right-0 top-0 w-full h-64 z-0 object-cover"
+                                                src="[##_article_rep_thumbnail_url_##]"
+                                                alt=""
+                                            />
+                                        </div>
+                                    </s_article_rep_thumbnail>
+                                    <div
+                                        class="description flex flex-col items-center gap-y-2 z-20 relative mx-4 text-h-800 dark:text-h-200 lg:mx-0"
+                                    >
+                                        <h1 class="text-center font-bold text-2xl lg:text-3xl">
+                                            [##_article_rep_title_##]
+                                        </h1>
+                                        <div class="flex gap-x-2">
+                                            <time class="text-sm">[##_article_rep_date_##]</time>
+                                        </div>
+                                    </div>
+                                </header>
+                                <div class="px-4 w-full lg:max-w-screen-lg lg:w-pem lg:px-0 lg:mx-auto">
+                                    <article class="relative" id="content" x-ref="content">
+                                        <div x-data="content">
+                                            <s_if_var_toc
+                                                ><template x-if="$data.headings.length > 0">
+                                                    <div
+                                                        class="rounded-md p-5 mb-8 box-border bg-h-200 text-h-500 dark:bg-h-700 dark:text-h-200"
+                                                        id="TOC"
+                                                    >
+                                                        <strong
+                                                            class="flex items-center justify-between text-overflow-hidden text-sm pb-2 mb-4 border-b border-solid border-h-400 dark:border-h-200"
+                                                            ><span class="text-base">목차</span
+                                                            ><i class="fas fa-bars"></i
+                                                        ></strong>
+                                                        <ol class="flex flex-col gap-y-3">
+                                                            <template
+                                                                x-for="heading in $data.headings"
+                                                                :key="heading.id"
+                                                            >
+                                                                <li
+                                                                    :class='{ "pl-0": heading.tagName === "H2", "pl-4": heading.tagName === "H3" }'
+                                                                >
+                                                                    <a
+                                                                        class="flex items-center justify-between text-sm duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200"
+                                                                        :href="heading.href"
+                                                                    >
+                                                                        <div
+                                                                            class="text-overflow-hidden"
+                                                                            x-text="heading.text"
+                                                                        ></div>
+                                                                        <i class="fas fa-arrow-right scale-75"></i>
+                                                                    </a>
+                                                                </li>
+                                                            </template>
+                                                        </ol>
+                                                    </div> </template
+                                            ></s_if_var_toc>
+                                            <div id="article" x-ref="article">
+                                                <template x-ref="articleTemplate" x-teleport="#article">
+                                                    <div>[##_article_rep_desc_##]</div>
+                                                </template>
+                                            </div>
+                                            <s_if_var_scrollspy
+                                                ><template x-if="$data.headings.length > 0">
+                                                    <div
+                                                        class="2xl:absolute 2xl:top-0 2xl:h-full 2xl:ml-[calc(((1100px+theme(width.pem))/2)+theme(spacing.5))]"
+                                                        id="scrollspy"
+                                                        x-data="scrollspy"
+                                                        @scroll.window="scrollspy"
+                                                        x-transition:enter="transition ease-linear duration-200"
+                                                        x-transition:enter-start="opacity-0"
+                                                        x-transition:enter-end="opacity-100"
+                                                        x-transition:leave="transition ease-linear duration-200"
+                                                        x-transition:leave-start="opacity-100"
+                                                        x-transition:leave-end="opacity-0"
+                                                        x-show="show"
+                                                    >
+                                                        <div class="2xl:sticky 2xl:top-20">
+                                                            <button
+                                                                class="fixed top-20 right-0 w-8 h-8 z-30 rounded-md bg-h-300 text-h-500 dark:bg-h-700 dark:text-h-200 2xl:hidden"
+                                                                x-show="! open"
+                                                                @click="toggle"
+                                                            >
+                                                                <span class="text-hidden">목차</span
+                                                                ><i class="fa-solid fa-list-check"></i>
+                                                            </button>
+                                                            <div
+                                                                class="max-h-[calc(100vh-theme(spacing.20)-theme(spacing.10)-theme(spacing.3)-2rem)] overflow-hidden w-56 text-sm box-border max-2xl:transition-[right] max-2xl:duration-200 max-2xl:rounded-xl max-2xl:fixed max-2xl:top-20 max-2xl:right-4 max-2xl:z-40 max-2xl:bg-h-200 max-2xl:dark:bg-h-700 2xl:block"
+                                                                :class='open ? "max-2xl:right-4" : "max-2xl:-right-60"'
+                                                            >
+                                                                <div
+                                                                    class="overflow-x-hidden overflow-y-scroll max-h-[inherit] w-[calc(theme(spacing.56)+theme(spacing.5))]"
+                                                                >
+                                                                    <button
+                                                                        class="absolute text-base top-2 right-4 text-h-500 dark:text-h-200 2xl:hidden"
+                                                                        @click="toggle"
+                                                                    >
+                                                                        <span class="text-hidden">목차 닫기</span
+                                                                        ><i class="fa-solid fa-xmark"></i>
+                                                                    </button>
+                                                                    <ol
+                                                                        class="flex flex-col gap-y-3 max-2xl:p-6 max-2xl:pt-8 max-2xl:pr-14 2xl:px-8"
+                                                                        x-ref="spy"
+                                                                    >
+                                                                        <template
+                                                                            x-for="heading in $data.headings"
+                                                                            :key="heading.id"
+                                                                        >
+                                                                            <li
+                                                                                class="text-h-400"
+                                                                                :class='{ "pl-0": heading.tagName === "H2", "pl-4": heading.tagName === "H3" }'
+                                                                            >
+                                                                                <a
+                                                                                    class="duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200"
+                                                                                    :href="heading.href"
+                                                                                    x-text="heading.text"
+                                                                                    :class='{ "text-h-600 dark:text-h-200": heading.active }'
+                                                                                ></a>
+                                                                            </li>
+                                                                        </template>
+                                                                    </ol>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div> </template
+                                            ></s_if_var_scrollspy>
+                                        </div>
+                                    </article>
+                                    <div x-data="{ shown: false }" x-intersect.once="shown = true">
+                                        <footer class="mt-4" x-show="shown">
+                                            <div
+                                                class="border-t border-b border-dotted border-h-400 mt-6 py-8 flex gap-x-5 items-center"
+                                            >
+                                                <img
+                                                    class="lazyload rounded-full w-20 h-20"
+                                                    data-src="[##_image_##]"
+                                                    data-sizes="auto"
+                                                    width="80"
+                                                    height="80"
+                                                    alt="[##_blogger_##]"
+                                                />
+                                                <div class="flex flex-col gap-y-1">
+                                                    <div class="text-h-800 dark:text-h-200 font-bold">
+                                                        [##_blogger_##]
+                                                    </div>
+                                                    <div class="leading-7 text-sm text-h-400">[##_desc_##]</div>
+                                                </div>
+                                            </div>
+                                        </footer>
+                                    </div>
+                                </div>
+                            </div>
+                        </s_page_rep>
+                        <s_article_protected>
+                            <div id="protected">
+                                <s_permalink_article_rep>
+                                    <div class="py-20 flex flex-col justify-center items-center">
+                                        <header class="flex flex-col items-center gap-y-2 mx-4 lg:mx-0">
+                                            <a href="[##_article_rep_category_link_##]">[##_article_rep_category_##]</a>
+                                            <h1
+                                                class="text-center font-bold text-2xl text-h-800 dark:text-h-200 lg:text-3xl"
+                                            >
+                                                [##_article_rep_title_##]
+                                            </h1>
+                                            <div><time class="text-h-400 text-sm">[##_article_rep_date_##]</time></div>
+                                        </header>
+                                        <div
+                                            class="flex flex-col items-center gap-y-4 px-4 w-full lg:max-w-screen-lg lg:w-pem lg:px-0 lg:mx-auto"
+                                        >
+                                            <p class="text-center leading-7 mt-8 text-h-800 dark:text-h-200">
+                                                보호되어 있는 글입니다.<br />내용을 보시려면 비밀번호를 입력하세요.
+                                            </p>
+                                            <input
+                                                class="inline-block h-10 border-0 text-sm px-3 w-48 outline-none bg-h-300 text-h-400 dark:bg-h-700 dark:text-h-200"
+                                                type="password"
+                                                maxlength="16"
+                                                id="[##_article_password_##]"
+                                                name="[##_article_password_##]"
+                                                onkeydown="if (event.keyCode == 13)[##_article_dissolve_##]"
+                                                placeholder="비밀번호"
+                                            />
+                                        </div>
+                                    </div>
+                                </s_permalink_article_rep>
+                            </div>
+                        </s_article_protected>
+                    </s_article_rep>
+                    <s_notice_rep>
+                        <s_index_article_rep>
+                            <div
+                                class="mt-4 px-4 first:mt-20 lg:first:mt-40 lg:mt-0 lg:px-0 lg:w-idx lg:mx-auto"
+                                data-mode="list"
+                            >
+                                <div class="post">
+                                    <s_notice_rep_thumbnail
+                                        ><a class="thumbnail" href="[##_notice_rep_link_##]"
+                                            ><img
+                                                class="lazyload object-cover bg-h-100"
+                                                data-src="[##_notice_rep_thumbnail_url_##]"
+                                                data-sizes="auto"
+                                                alt="" /></a
+                                    ></s_notice_rep_thumbnail>
+                                    <div class="description flex flex-col">
+                                        <h2>
+                                            <a
+                                                class="text-h-800 dark:text-h-200 [&_img]:hidden"
+                                                href="[##_notice_rep_link_##]"
+                                                >[##_notice_rep_title_##]</a
+                                            >
+                                        </h2>
+                                        <time class="text-h-400 text-sm">[##_notice_rep_date_##]</time>
+                                        <p class="relative overflow-hidden text-h-400 leading-7">
+                                            [##_notice_rep_summary_##]
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </s_index_article_rep>
+                        <s_permalink_article_rep>
+                            <div id="permalink">
+                                <header
+                                    class="h-64 mb-10 flex justify-center items-center border-b border-b-solid border-b-h-200 dark:border-b-h-700 lg:mb-16"
+                                >
+                                    <s_notice_rep_thumbnail>
+                                        <div
+                                            class="thumbnail absolute right-0 top-0 w-full h-64 before:content-[&quot;&quot;] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/50 before:z-10 [&+.description]:text-h-200"
+                                        >
+                                            <img
+                                                class="absolute right-0 top-0 w-full h-64 z-0 object-cover"
+                                                src="[##_notice_rep_thumbnail_url_##]"
+                                                alt=""
+                                            />
+                                        </div>
+                                    </s_notice_rep_thumbnail>
+                                    <div
+                                        class="description flex flex-col items-center gap-y-2 z-20 relative mx-4 text-h-800 dark:text-h-200 lg:mx-0"
+                                    >
+                                        <a class="/notice">공지사항</a>
+                                        <h1 class="text-center font-bold text-2xl lg:text-3xl">
+                                            [##_notice_rep_title_##]
+                                        </h1>
+                                        <div class="flex gap-x-2">
+                                            <time class="text-sm">[##_notice_rep_date_##]</time>
+                                        </div>
+                                    </div>
+                                </header>
+                                <div class="px-4 w-full lg:max-w-screen-lg lg:w-pem lg:px-0 lg:mx-auto">
+                                    <article class="relative" id="content" x-ref="content">
+                                        <div x-data="content">
+                                            <s_if_var_toc
+                                                ><template x-if="$data.headings.length > 0">
+                                                    <div
+                                                        class="rounded-md p-5 mb-8 box-border bg-h-200 text-h-500 dark:bg-h-700 dark:text-h-200"
+                                                        id="TOC"
+                                                    >
+                                                        <strong
+                                                            class="flex items-center justify-between text-overflow-hidden text-sm pb-2 mb-4 border-b border-solid border-h-400 dark:border-h-200"
+                                                            ><span class="text-base">목차</span
+                                                            ><i class="fas fa-bars"></i
+                                                        ></strong>
+                                                        <ol class="flex flex-col gap-y-3">
+                                                            <template
+                                                                x-for="heading in $data.headings"
+                                                                :key="heading.id"
+                                                            >
+                                                                <li
+                                                                    :class='{ "pl-0": heading.tagName === "H2", "pl-4": heading.tagName === "H3" }'
+                                                                >
+                                                                    <a
+                                                                        class="flex items-center justify-between text-sm duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200"
+                                                                        :href="heading.href"
+                                                                    >
+                                                                        <div
+                                                                            class="text-overflow-hidden"
+                                                                            x-text="heading.text"
+                                                                        ></div>
+                                                                        <i class="fas fa-arrow-right scale-75"></i>
+                                                                    </a>
+                                                                </li>
+                                                            </template>
+                                                        </ol>
+                                                    </div> </template
+                                            ></s_if_var_toc>
+                                            <div id="article" x-ref="article">
+                                                <template x-ref="articleTemplate" x-teleport="#article">
+                                                    <div>[##_notice_rep_desc_##]</div>
+                                                </template>
+                                            </div>
+                                            <s_if_var_scrollspy
+                                                ><template x-if="$data.headings.length > 0">
+                                                    <div
+                                                        class="2xl:absolute 2xl:top-0 2xl:h-full 2xl:ml-[calc(((1100px+theme(width.pem))/2)+theme(spacing.5))]"
+                                                        id="scrollspy"
+                                                        x-data="scrollspy"
+                                                        @scroll.window="scrollspy"
+                                                        x-transition:enter="transition ease-linear duration-200"
+                                                        x-transition:enter-start="opacity-0"
+                                                        x-transition:enter-end="opacity-100"
+                                                        x-transition:leave="transition ease-linear duration-200"
+                                                        x-transition:leave-start="opacity-100"
+                                                        x-transition:leave-end="opacity-0"
+                                                        x-show="show"
+                                                    >
+                                                        <div class="2xl:sticky 2xl:top-20">
+                                                            <button
+                                                                class="fixed top-20 right-0 w-8 h-8 z-30 rounded-md bg-h-300 text-h-500 dark:bg-h-700 dark:text-h-200 2xl:hidden"
+                                                                x-show="! open"
+                                                                @click="toggle"
+                                                            >
+                                                                <span class="text-hidden">목차</span
+                                                                ><i class="fa-solid fa-list-check"></i>
+                                                            </button>
+                                                            <div
+                                                                class="max-h-[calc(100vh-theme(spacing.20)-theme(spacing.10)-theme(spacing.3)-2rem)] overflow-hidden w-56 text-sm box-border max-2xl:transition-[right] max-2xl:duration-200 max-2xl:rounded-xl max-2xl:fixed max-2xl:top-20 max-2xl:right-4 max-2xl:z-40 max-2xl:bg-h-200 max-2xl:dark:bg-h-700 2xl:block"
+                                                                :class='open ? "max-2xl:right-4" : "max-2xl:-right-60"'
+                                                            >
+                                                                <div
+                                                                    class="overflow-x-hidden overflow-y-scroll max-h-[inherit] w-[calc(theme(spacing.56)+theme(spacing.5))]"
+                                                                >
+                                                                    <button
+                                                                        class="absolute text-base top-2 right-4 text-h-500 dark:text-h-200 2xl:hidden"
+                                                                        @click="toggle"
+                                                                    >
+                                                                        <span class="text-hidden">목차 닫기</span
+                                                                        ><i class="fa-solid fa-xmark"></i>
+                                                                    </button>
+                                                                    <ol
+                                                                        class="flex flex-col gap-y-3 max-2xl:p-6 max-2xl:pt-8 max-2xl:pr-14 2xl:px-8"
+                                                                        x-ref="spy"
+                                                                    >
+                                                                        <template
+                                                                            x-for="heading in $data.headings"
+                                                                            :key="heading.id"
+                                                                        >
+                                                                            <li
+                                                                                class="text-h-400"
+                                                                                :class='{ "pl-0": heading.tagName === "H2", "pl-4": heading.tagName === "H3" }'
+                                                                            >
+                                                                                <a
+                                                                                    class="duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200"
+                                                                                    :href="heading.href"
+                                                                                    x-text="heading.text"
+                                                                                    :class='{ "text-h-600 dark:text-h-200": heading.active }'
+                                                                                ></a>
+                                                                            </li>
+                                                                        </template>
+                                                                    </ol>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div> </template
+                                            ></s_if_var_scrollspy>
+                                        </div>
+                                    </article>
+                                    <div x-data="{ shown: false }" x-intersect.once="shown = true">
+                                        <footer class="mt-4" x-show="shown">
+                                            <div
+                                                class="border-t border-b border-dotted border-h-400 mt-6 py-8 flex gap-x-5 items-center"
+                                            >
+                                                <img
+                                                    class="lazyload rounded-full w-20 h-20"
+                                                    data-src="[##_image_##]"
+                                                    data-sizes="auto"
+                                                    width="80"
+                                                    height="80"
+                                                    alt="[##_blogger_##]"
+                                                />
+                                                <div class="flex flex-col gap-y-1">
+                                                    <div class="text-h-800 dark:text-h-200 font-bold">
+                                                        [##_blogger_##]
+                                                    </div>
+                                                    <div class="leading-7 text-sm text-h-400">[##_desc_##]</div>
+                                                </div>
+                                            </div>
+                                        </footer>
+                                    </div>
+                                </div>
+                            </div>
+                        </s_permalink_article_rep>
+                    </s_notice_rep>
+                    <s_tag>
+                        <div class="w-full px-4 mt-20 lg:mt-40 lg:mx-auto lg:w-idx lg:px-0" id="tag-cloud">
+                            <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
+                                <s_tag_rep>
+                                    <li>
+                                        <a
+                                            class="[##_tag_class_##] text-overflow-hidden text-center inline-block px-4 py-5 rounded-md duration-200 w-full bg-h-200 text-h-600 hover:bg-h-600 hover:text-h-200 dark:text-h-400 dark:bg-h-700 dark:hover:bg-h-600"
+                                            href="[##_tag_link_##]"
+                                            >[##_tag_name_##]</a
+                                        >
+                                    </li>
+                                </s_tag_rep>
+                            </ul>
+                        </div>
+                    </s_tag>
+                    <s_list>
+                        <section data-mode="[##_list_style_##]">
+                            <header
+                                class="h-64 mb-10 flex justify-center items-center border-b border-b-solid border-b-h-200 dark:border-b-h-700 lg:mb-16"
+                            >
+                                <s_list_image>
+                                    <div
+                                        class="thumbnail absolute right-0 top-0 w-full h-64 before:content-[&quot;&quot;] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/50 before:z-10 [&+.description]:text-h-200"
+                                    >
+                                        <img
+                                            class="absolute right-0 top-0 w-full h-64 z-0 object-cover"
+                                            src="[##_list_image_##]"
+                                            alt=""
+                                        />
+                                    </div>
+                                </s_list_image>
+                                <div
+                                    class="description flex flex-col items-center z-20 relative mx-4 text-center text-h-800 dark:text-h-200 lg:mx-0"
+                                >
+                                    <h1 class="font-bold text-2xl lg:text-3xl">[##_list_conform_##]</h1>
+                                    <span class="font-bold mt-3 empty:mt-0">[##_list_description_##]</span>
+                                </div>
+                            </header>
+                            <div class="list px-4 lg:px-0 lg:w-idx lg:mx-auto" x-ref="list">
+                                <s_list_rep>
+                                    <div class="post">
+                                        <s_list_rep_thumbnail
+                                            ><a class="thumbnail" href="[##_list_rep_link_##]"
+                                                ><img
+                                                    class="lazyload object-cover bg-h-100"
+                                                    data-src="[##_list_rep_thumbnail_##]"
+                                                    data-sizes="auto"
+                                                    alt="" /></a
+                                        ></s_list_rep_thumbnail>
+                                        <div class="description flex flex-col">
+                                            <a class="text-sm text-h-400" href="[##_list_rep_category_link_##]"
+                                                >[##_list_rep_category_##]</a
+                                            >
+                                            <h2>
+                                                <a
+                                                    class="text-h-800 dark:text-h-200 [&_img]:hidden"
+                                                    href="[##_list_rep_link_##]"
+                                                    >[##_list_rep_title_##]</a
+                                                >
+                                            </h2>
+                                            <time class="text-h-400 text-sm">[##_list_rep_regdate_##]</time>
+                                            <p class="relative overflow-hidden text-h-400 leading-7">
+                                                [##_list_rep_summary_##]
+                                            </p>
+                                        </div>
+                                    </div>
+                                </s_list_rep>
+                            </div>
+                        </section>
+                    </s_list>
+                    <s_paging>
+                        <ul class="flex justify-center items-center mt-8 lg:mt-20" id="paging">
+                            <li>
+                                <a class="[##_no_more_prev_##]" [##_prev_page_##]=""
+                                    ><span class="text-hidden">이전</span><i class="fa fa-angle-left"></i
+                                ></a>
+                            </li>
+                            <s_paging_rep>
+                                <li><a [##_paging_rep_link_##]="">[##_paging_rep_link_num_##]</a></li>
+                            </s_paging_rep>
+                            <li>
+                                <a class="[##_no_more_next_##]" [##_next_page_##]=""
+                                    ><i class="fa fa-angle-right"></i><span class="text-hidden">다음</span></a
+                                >
+                            </li>
+                        </ul>
+                    </s_paging>
+                </main>
+                <aside
+                    class="h-full fixed top-0 w-s overflow-hidden z-40 transition-[left] duration-200 p-0 bg-h-200 dark:bg-h-700 <s_if_var_sidebar>xl:left-0</s_if_var_sidebar>"
+                    id="sidebar"
+                    :class='sidebar ? "left-0" : "-left-[calc(theme(width.s))]"'
+                >
+                    <div
+                        class="flex flex-col gap-y-6 overflow-x-hidden overflow-y-scroll h-full w-[calc(theme(width.s)+theme(spacing.8))] absolute py-6 border-box"
+                    >
+                        <s_sidebar>
+                            <s_sidebar_element
+                                ><!-- 프로필-->
+                                <div class="sidebar-element">
+                                    <div class="text-center flex flex-col items-center my-4">
+                                        <img
+                                            class="rounded-full"
+                                            src="[##_image_##]"
+                                            width="100"
+                                            height="100"
+                                            alt="[##_blogger_##]"
+                                        />
+                                        <div>
+                                            <a
+                                                class="link_tit inline-block pt-4 pb-1 font-medium"
+                                                href="[##_blog_link_##]"
+                                                >[##_title_##]</a
+                                            >
+                                        </div>
+                                        <div class="text-h-400 text-sm">[##_blogger_##]</div>
+                                    </div>
+                                </div>
+                            </s_sidebar_element>
+                            <s_sidebar_element
+                                ><!-- 방문자 수-->
+                                <div class="sidebar-element">
+                                    <div class="overflow-hidden flex justify-between" id="counter">
+                                        <div>
+                                            <div class="text-left">
+                                                <div class="title">Total</div>
+                                                <div class="count">[##_count_total_##]</div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="title">Today</div>
+                                            <div class="count">[##_count_today_##]</div>
+                                        </div>
+                                        <div>
+                                            <div class="title">Yesterday</div>
+                                            <div class="count">[##_count_yesterday_##]</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </s_sidebar_element>
+                            <s_sidebar_element
+                                ><!-- 검색-->
+                                <div class="sidebar-element">
+                                    <s_search>
+                                        <div
+                                            class="flex items-center gap-x-3 border-box px-4 py-3 rounded-md bg-h-300 text-h-600 dark:bg-h-600 dark:text-h-300"
+                                        >
+                                            <label for="search"
+                                                ><span class="text-hidden">검색</span
+                                                ><i class="text-base fa-solid fa-magnifying-glass"></i></label
+                                            ><input
+                                                class="text-sm text-overflow-hidden border-none outline-none bg-h-300 dark:bg-h-600"
+                                                id="search"
+                                                name="[##_search_name_##]"
+                                                value="[##_search_text_##]"
+                                                onkeypress="if (event.keyCode == 13) { [##_search_onclick_submit_##] }"
+                                            />
+                                        </div>
+                                    </s_search>
+                                </div>
+                            </s_sidebar_element>
+                            <s_sidebar_element
+                                ><!-- 카테고리-->
+                                <div class="sidebar-element">
+                                    <div id="category" x-data="category">[##_category_list_##]</div>
+                                </div>
+                            </s_sidebar_element>
+                            <s_sidebar_element
+                                ><!-- 블로그 메뉴-->
+                                <div class="sidebar-element">
+                                    <div id="blogmenu">
+                                        <h2>블로그 메뉴</h2>
+                                        [##_blog_menu_##]
+                                    </div>
+                                </div>
+                            </s_sidebar_element>
+                            <s_sidebar_element
+                                ><!-- 공지사항-->
+                                <div class="sidebar-element">
+                                    <div>
+                                        <h2><a class="link_tit" href="/notice">공지사항</a></h2>
+                                        <s_rct_notice>
+                                            <ul class="flex flex-col gap-y-3">
+                                                <s_rct_notice_rep>
+                                                    <li class="text-sm">
+                                                        <i class="fa-regular fa-bell text-h-400 mr-2"></i
+                                                        ><a href="[##_notice_rep_link_##]">[##_notice_rep_title_##]</a>
+                                                    </li>
+                                                </s_rct_notice_rep>
+                                            </ul>
+                                        </s_rct_notice>
+                                    </div>
+                                </div>
+                            </s_sidebar_element>
+                            <s_sidebar_element
+                                ><!-- 인기 글-->
+                                <div class="sidebar-element">
+                                    <div>
+                                        <h2>인기 글</h2>
+                                        <ul class="flex flex-col gap-y-2">
+                                            <s_rctps_popular_rep>
+                                                <li class="flex justify-start text-h-400 text-sm">
+                                                    <div class="text-overflow-hidden">
+                                                        <a href="[##_rctps_rep_link_##]">[##_rctps_rep_title_##]</a>
+                                                        <div class="text-h-400 mt-1 text-xs">
+                                                            [##_rctps_rep_simple_date_##]
+                                                        </div>
+                                                    </div>
+                                                    <s_rctps_rep_thumbnail
+                                                        ><img
+                                                            class="lazyload w-16 h-11 object-cover ml-3 bg-h-100"
+                                                            data-src="[##_rctps_rep_thumbnail_##]"
+                                                            data-sizes="auto"
+                                                            alt=""
+                                                            width="64"
+                                                            height="44"
+                                                    /></s_rctps_rep_thumbnail>
+                                                </li>
+                                            </s_rctps_popular_rep>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </s_sidebar_element>
+                            <s_sidebar_element
+                                ><!-- 태그-->
+                                <div class="sidebar-element">
+                                    <div>
+                                        <h2><a class="link_tit" href="/tag">태그</a></h2>
+                                        <ul class="flex flex-col gap-y-2">
+                                            <s_random_tags>
+                                                <li class="text-sm">
+                                                    <i class="fa fa-hashtag mr-2"></i
+                                                    ><a class="[##_tag_class_##]" href="[##_tag_link_##]"
+                                                        >[##_tag_name_##]</a
+                                                    >
+                                                </li>
+                                            </s_random_tags>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </s_sidebar_element>
+                            <s_sidebar_element
+                                ><!-- 최근 댓글-->
+                                <div class="sidebar-element">
+                                    <div>
+                                        <h2>최근 댓글</h2>
+                                        <ul class="flex flex-col gap-y-2">
+                                            <s_rctrp_rep>
+                                                <li class="text-sm text-h-400">
+                                                    <div class="text-overflow-hidden">
+                                                        <i class="fa-regular fa-comment-dots font-normal mr-2"></i
+                                                        ><a href="[##_rctrp_rep_link_##]">[##_rctrp_rep_desc_##]</a>
+                                                    </div>
+                                                    <div class="mt-1 text-h-400">[##_rctrp_rep_name_##]</div>
+                                                </li>
+                                            </s_rctrp_rep>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </s_sidebar_element>
+                            <s_sidebar_element
+                                ><!-- 최근 글-->
+                                <div class="sidebar-element">
+                                    <div>
+                                        <h2>최근 글</h2>
+                                        <ul class="flex flex-col gap-y-2">
+                                            <s_rctps_rep>
+                                                <li class="flex justify-between text-sm">
+                                                    <div class="text-overflow-hidden">
+                                                        <a href="[##_rctps_rep_link_##]">[##_rctps_rep_title_##]</a>
+                                                        <div class="text-h-400 mt-1 text-xs">
+                                                            [##_rctps_rep_simple_date_##]
+                                                        </div>
+                                                    </div>
+                                                    <s_rctps_rep_thumbnail
+                                                        ><img
+                                                            class="lazyload w-16 h-11 object-cover ml-3 bg-h-100"
+                                                            data-src="[##_rctps_rep_thumbnail_##]"
+                                                            data-sizes="auto"
+                                                            alt=""
+                                                            width="64"
+                                                            height="44"
+                                                    /></s_rctps_rep_thumbnail>
+                                                </li>
+                                            </s_rctps_rep>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </s_sidebar_element>
+                        </s_sidebar>
+                        <div class="sidebar-element">
+                            <div class="text-h-400 text-xs" id="copyright">
+                                <!--이 부분은 스킨 소개페이지 및 제작자의 깃허브 링크로 이동됩니다.
+hELLO 는 무료인 만큼, 링크의 주소는 반드시 지켜주시기 바랍니다.--><a href="https://pronist.tistory.com/5">hELLO</a> ·
+                                Designed By <a href="https://github.com/pronist">정상우</a>.
+                            </div>
+                        </div>
+                    </div>
+                    <template x-teleport="body">
+                        <div
+                            class="fixed top-0 left-0 w-screen h-screen bg-h-900/50 backdrop-blur z-30 duration-200"
+                            x-show="sidebar"
+                            x-transition:enter="transition ease-linear duration-300"
+                            x-transition:enter-start="opacity-0"
+                            x-transition:enter-end="opacity-100"
+                            x-transition:leave="transition ease-linear duration-300"
+                            x-transition:leave-start="opacity-100"
+                            x-transition:leave-end="opacity-0"
+                            @click="sidebar = false"
+                        ></div>
+                    </template>
+                </aside>
+                <div
+                    class="w-full box-border px-4 h-14 top-0 fixed flex justify-between items-center z-30 backdrop-blur bg-h-100/50 dark:bg-h-800/80 xl:px-5 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>"
+                    x-data="top"
+                    @scroll.window="toggle"
+                    x-show="open"
+                    x-transition:enter="transition ease-linear duration-300"
+                    x-transition:enter-start="opacity-0"
+                    x-transition:enter-end="opacity-100"
+                    x-transition:leave="transition ease-linear duration-300"
+                    x-transition:leave-start="opacity-100"
+                    x-transition:leave-end="opacity-0"
+                >
+                    <div>
+                        <img
+                            class="lazyload rounded-full w-9 h-9 cursor-pointer <s_if_var_sidebar>xl:invisible</s_if_var_sidebar>"
+                            @click="sidebar = ! sidebar"
+                            data-src="[##_image_##]"
+                            data-sizes="auto"
+                            alt="[##_blogger_##]"
+                            width="36"
+                            height="36"
+                        />
+                    </div>
+                    <div>
+                        <div
+                            class="m-0 text-sm font-bold h-5 text-overflow-hidden max-w-[calc(80vw-152px)] text-h-800 dark:text-h-200"
+                        >
+                            [##_page_title_##]
+                        </div>
+                    </div>
+                    <div>
+                        <button
+                            class="subscription flex justify-center items-center w-10 h-10 outline-0 rounded-full bg-h-200 text-h-500 hover:bg-h-300 dark:text-h-200 dark:bg-h-700 dark:hover:bg-h-600 btn_menu_toolbar btn_subscription #subscribe"
+                            :data-blog-id="T.config.BLOG.id"
+                            :data-url="TistoryBlog.tistoryUrl"
+                        >
+                            <span class="text-hidden">구독하기</span><i class="fa-solid fa-star font-bold text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+                <div
+                    class="flex justify-end px-4 w-full box-border fixed text-sm z-30 bottom-3 xl:bottom-4 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>"
+                    id="bottom"
+                >
+                    <div class="flex gap-x-3">
+                        <button x-data="theme" @click="toggle">
+                            <span class="text-hidden">테마</span><i class="fa-solid fa-moon text-base"></i></button
+                        ><a href="#hELLO"
+                            ><span class="text-hidden">상단으로</span><i class="fa-solid fa-chevron-up text-base"></i
+                        ></a>
+                    </div>
+                </div>
+            </div>
+        </s_t3>
+    </body>
+</html>

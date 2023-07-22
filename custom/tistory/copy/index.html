@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css" />
+        <script async src="./index.js"></script>
+    </head>
+    <body>
+        <style></style>
+        <div class="custom">
+            <table class="table">
+                <caption>
+                    table 태그 설명에 대한 표
+                </caption>
+                <colgroup>
+                    <col style="width: 170px" />
+                    <col />
+                    <col />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>태그명</th>
+                        <th>속성</th>
+                        <th>태그의 의미 및 특징</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>&lt;table&gt;&lt;/table&gt;</th>
+                        <td rowspan="2"></td>
+                        <td class="ul">
+                            <p>1. 표를 만들 때 사용하는 태그, 행(Row)과 열(Column)의 2차원 정보로 구성</p>
+                            <p>2. 자식 요소로 반드시 tr 태그를 정의, table -> tr -> th or td 순으로 마크업해야 함</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>&lt;tr&gt;&lt;/tr&gt;</th>
+                        <td>tr 태그는 table 태그의 자식 요소로 표에서 행(Row)을 정의할 때 사용</td>
+                    </tr>
+                    <tr>
+                        <th>&lt;th&gt;&lt;/th&gt;</th>
+                        <td rowspan="2">
+                            <p><b>colspan</b></p>
+                            <p class="ul">1. 합치기 될 열(Column)의 수 지정</p>
+                            <p class="ul">2. 만약 3개의 열을 합친다면 &lt;td colspan="3"&gt;로 정의</p>
+                            <p><b>rowspan</b></p>
+                            <p class="ul">1. 합치기 될 행(Row)의 수 지정</p>
+                            <p class="ul">2. 만약 3개의 행을 합친다면 &lt;td rowspan="3"&gt;로 정의</p>
+                        </td>
+                        <td>th 태그는 제목 역할을 하는 셀을 정의할 때 사용</td>
+                    </tr>
+                    <tr>
+                        <th>&lt;td&gt;&lt;/td&gt;</th>
+                        <td>td 태그는 tr 태그의 자식 요소로 표에서 열(Column)을 정의할 때 사용</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="copy">
+            <button type="button" onclick="copy()">티스토리 HTML 변환</button>
+        </div>
+    </body>
+</html>
+<tr>
+    <th>&lt;tag&gt;&lt;/tag&gt;</th>
+    <td></td>
+</tr>

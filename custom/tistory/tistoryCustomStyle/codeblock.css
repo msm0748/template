@@ -1,0 +1,150 @@
+/* 파일 업로드 후 HTML 파일 head 태그 제일 하단에 아래 코드(주석 제거 후) 추가  */
+/* <link rel="stylesheet" href="./images/codeblock.css" /> */
+
+pre {
+    position: relative;
+}
+pre::after {
+    content: attr(data-ke-language);
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    color: #e7e8e8;
+    font-size: 13px;
+    display: block;
+    width: 100%;
+    text-align: right;
+    padding-right: 20px;
+    background: #7b7878;
+    border-radius: 0 0 7px 7px;
+    box-sizing: border-box;
+}
+.hljs {
+    display: flex !important;
+    flex-direction: column;
+    padding: 0 !important;
+    font-size: 14px;
+    border-radius: 8px;
+    color: #cfd2d1;
+    background-color: #343131;
+    font-family: Menlo, Courier, monospace;
+}
+.hljs .line {
+    counter-increment: line-idx;
+    line-height: 1.5;
+}
+.hljs .line:hover {
+    background-color: #262830;
+}
+.hljs .line:hover::before {
+    color: #cfd2d1;
+}
+.hljs .line::before {
+    content: counter(line-idx);
+    width: 24px;
+    display: inline-block;
+    text-align: right;
+    margin-right: 16px;
+    font-size: 0.8rem;
+    color: #747a7a;
+}
+.hljs .code-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #434041;
+    border-radius: 8px 8px 0 0;
+}
+
+.hljs .code-header > div:hover .btn:before,
+.hljs .code-header > div:hover .btn:after {
+    content: '';
+    opacity: 0.4;
+    background-color: black;
+    position: absolute;
+}
+.hljs .code-header > div:hover .btn.red:before {
+    width: 10px;
+    height: 2px;
+    transform: rotate(-45deg);
+}
+.hljs .code-header > div:hover .btn.red:after {
+    width: 10px;
+    height: 2px;
+    transform: rotate(45deg);
+}
+.hljs .code-header > div:hover .btn.yellow:after {
+    width: 10px;
+    height: 2px;
+}
+.hljs .code-header > div:hover .btn.green:before {
+    width: 0;
+    height: 0;
+    border-bottom: 3px solid black;
+    border-left: 3px solid transparent;
+    border-top: 3px solid transparent;
+    border-right: 3px solid black;
+    bottom: 4px;
+    right: 4px;
+    background-color: transparent;
+}
+.hljs .code-header > div:hover .btn.green:after {
+    width: 0;
+    height: 0;
+    border-bottom: 3px solid transparent;
+    border-top: 3px solid black;
+    border-left: 3px solid black;
+    border-right: 3px solid transparent;
+    top: 4px;
+    left: 4px;
+    background-color: transparent;
+}
+.hljs .code-header .btn {
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    margin: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hljs .code-header .btn.red {
+    background-color: #f5655b;
+}
+.hljs .code-header .btn.yellow {
+    background-color: #f6bd3b;
+}
+.hljs .code-header .btn.green {
+    background-color: #43c645;
+    position: relative;
+}
+.hljs .code-body {
+    max-height: 600px;
+    margin: 32px 8px;
+    overflow: auto;
+}
+.hljs .code-body::-webkit-scrollbar {
+    width: 12px;
+}
+.hljs .code-body::-webkit-scrollbar-thumb {
+    background-color: rgb(1 2 3 / 80%);
+    border-radius: 4px;
+}
+.hljs .code-body::-webkit-scrollbar-corner {
+    display: none;
+}
+.hljs .copy-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 0.9rem;
+    padding: 6px 0;
+    width: 64px;
+    border-radius: 4px;
+    margin-left: auto;
+    transition: 0.2s background-color;
+}
+.hljs .copy-btn:hover {
+    background-color: #555152;
+}
