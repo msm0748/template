@@ -538,7 +538,7 @@ video {
 }
 
 .-left-\[calc\(theme\(width\.s\)\)\] {
-  left: calc(calc(16rem) * -1);
+  left: calc(calc(20rem) * -1);
 }
 
 .right-0 {
