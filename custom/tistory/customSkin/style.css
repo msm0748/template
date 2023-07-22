@@ -2047,7 +2047,7 @@ button {
   }
 
   .lg\:w-idx {
-    width: 1100px;
+    width: calc(1100px - 4rem);
   }
 
   .lg\:w-pem {
@@ -2990,19 +2990,9 @@ button {
 }
 
 #content .contents_style blockquote[data-ke-style][data-ke-style="style3"] {
-  border-radius: 0.75rem;
-
-  border-width: 0px;
-
-  --tw-bg-opacity: 1;
-
-  background-color: rgb(244 244 246 / var(--tw-bg-opacity));
-
   line-height: 2;
-
-  --tw-text-opacity: 1;
-
   color: rgb(153 153 161 / var(--tw-text-opacity));
+  border: 1px solid #dddddd;
 }
 
 .dark #content .contents_style blockquote[data-ke-style][data-ke-style="style3"] {
@@ -3028,7 +3018,7 @@ button {
 #content .contents_style pre code.hljs {
   --tw-bg-opacity: 1;
 
-  background-color: rgb(244 244 246 / var(--tw-bg-opacity));
+  background-color: rgb(41 42 45 / var(--tw-bg-opacity));
 }
 
 .dark #content .contents_style pre code.hljs {
@@ -3458,7 +3448,7 @@ button {
     border-top-width: 1px;
     border-style: solid;
     --tw-border-opacity: 1;
-    border-color: rgb(230 230 233 / var(--tw-border-opacity));
+    border-color: rgb(153 153 161 / 0.8);
   }
 
   .dark [data-mode="list"] .post {
