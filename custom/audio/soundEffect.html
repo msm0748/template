@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sound Effect</title>
+  </head>
+  <body>
+    <audio id="my-audio" controls>
+      <source src="./PushUptheBeat.mp3" type="audio/mp3" />
+    </audio>
+    <button id="applyEffectButton">Apply Underwater Effect</button>
+    <script>
+      const audioElement = document.getElementById('my-audio');
+
+      audioElement.addEventListener('play', (e) => {
+        audioElement.volume = 0.2;
+      });
+      // 물속 효과를 적용하는 함수
+      function applyUnderwaterEffect() {
+        // const audioElement = document.getElementById('underwaterAudio');
+
+        // 물 속 효과를 위한 필터 생성
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const source = audioContext.createMediaElementSource(audioElement);
+        const underwaterEffect = audioContext.createBiquadFilter();
+
+        underwaterEffect.type = 'lowpass'; // 저역 통과 필터 (물 속 효과)
+        underwaterEffect.frequency.value = 350; // 저역 통과 주파수
+
+        // 연결 및 재생
+        source.connect(underwaterEffect);
+        underwaterEffect.connect(audioContext.destination);
+
+        // audioElement.play(); // 오디오 재생
+      }
+
+      // 버튼 클릭 시 물속 효과 적용
+      const applyEffectButton = document.getElementById('applyEffectButton');
+      applyEffectButton.addEventListener('click', applyUnderwaterEffect);
+    </script>
+  </body>
+</html>
